@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      function ajaxget(strURL) {
+        var xmlHttpReq = false;
+        var self = this;
+        // Mozilla/Safari
+        if (window.XMLHttpRequest) {
+          self.xmlHttpReq = new XMLHttpRequest();
+        }
+        // IE
+        else if (window.ActiveXObject) {
+          self.xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        self.xmlHttpReq.open('GET', strURL, true);
+        self.xmlHttpReq.send(null);
+      }
+    </script>
+    <style type="text/css">
+      input { 
+        font-size: 150%; 
+        height: 5em;
+        width: 5em;
+        text-align: center;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        margin: 1em;
+      }
+      div {
+        text-align: center; 
+        font-size: 300%;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <form>
+        <input value="Up" type="button" onclick="ajaxget('up')"></p>
+        <input value="Down" type="button" onclick="ajaxget('down')"></p>
+      </form>
+    </div>
+  </body>
+</html>
