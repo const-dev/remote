@@ -22,8 +22,21 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
             SimpleHTTPServer.SimpleHTTPRequestHandler.do_GET(self)
 
 
+def get_ip():
+    if sys.platform.startswith('linux'):
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        s.connect(('8.8.8.8', 80))   # Google's public DNS server
+        ip = s.getsockname()[0]
+        s.close()
+    else:
+        ip = socket.gethostbyname(socket.gethostname())
+
+    return ip
+
+
 rbt = Robot()
 PORT = int(sys.argv[1]) if len(sys.argv) == 2 else DEFAULT_PORT
 httpd = SocketServer.ThreadingTCPServer(('', PORT), MyHandler)
-print '%s:%d' % (socket.gethostbyname(socket.gethostname()), PORT)
+print '%s:%d' % (get_ip(), PORT)
 httpd.serve_forever()
+
