@@ -1,3 +1,6 @@
+MacGyver's Wireless Presenter
+=============================
+
 This script turns your smartphone into a wireless presenter.
 
 Requirement
@@ -7,7 +10,7 @@ Requirement
    ``remote.py``.
 
 *  Your laptop (or wherever you put your slides on) and your smartphone
-   should be on the same subnet.
+   should be on the same (high-speed, supposedly) subnet.
 
 Usage
 -----
