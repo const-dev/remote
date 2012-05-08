@@ -25,7 +25,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 def get_ip():
     if sys.platform.startswith('linux'):
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-        s.connect(('8.8.8.8', 80))   # Google's public DNS server
+        s.connect(('8.8.8.8', 53))   # Google's public DNS server
         ip = s.getsockname()[0]
         s.close()
     else:

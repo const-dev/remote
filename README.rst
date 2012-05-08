@@ -8,8 +8,8 @@ Requirement
 
 *  `Jython <http://www.jython.org/downloads.html>`_ 
 
-*  Your laptop (or wherever you put your slides on) and your smartphone
-   should be on the same (high-speed, supposedly) subnet.
+*  Your laptop (or wherever you put your slides on) and smartphone
+   must be on the same (high-speed, supposedly) subnet.
 
 Usage
 -----
@@ -20,9 +20,7 @@ Run ``remote.py`` under the same directory where ``index.html`` is placed.
 
    $ jython remote.py
 
-or specify another port number
-
-::
+or specify another port number::
 
    $ jython remote.py 1234
 
