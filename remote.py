@@ -9,6 +9,8 @@ import SimpleHTTPServer
 
 DEFAULT_PORT = 8000
 
+# http://docs.oracle.com/javase/7/docs/api/java/awt/event/KeyEvent.html
+
 class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     def do_GET(self):
         print self.path
