@@ -54,14 +54,14 @@ function drawMouse(e) {
         // Touch Enabled
         for (var i = 1; i <= e.touches.length; i++) {
             var p = getCoords(e.touches[i - 1]); // Get info for finger i
-                        ajaxget('mv?' + (p.x - cb_lastPoints[i].x) + '&' + (p.y - cb_lastPoints[i].y));
+            ajaxget('mv?' + (p.x - cb_lastPoints[i].x) + '&' + (p.y - cb_lastPoints[i].y));
             cb_lastPoints[i] = drawLine(cb_lastPoints[i].x, cb_lastPoints[i].y, p.x, p.y);
         }
     }
     else {
         // Not touch enabled
         var p = getCoords(e);
-                ajaxget('mv?' + (p.x - cb_lastPoints[i].x) + '&' + (p.y - cb_lastPoints[i].y));
+        ajaxget('mv?' + (p.x - cb_lastPoints[i].x) + '&' + (p.y - cb_lastPoints[i].y));
         cb_lastPoints[0] = drawLine(cb_lastPoints[0].x, cb_lastPoints[0].y, p.x, p.y);
     }
     cb_ctx.stroke();

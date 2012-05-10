@@ -11,7 +11,7 @@ import SocketServer
 import SimpleHTTPServer
 
 
-# TODO: trajactory stablization
+# TODO: trajectory stabilization
 
 
 DEFAULT_PORT = 8000
