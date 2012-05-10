@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <meta name="viewport" content="width=device-width, user-scalable=no" />
+  <head>
+    <script type="text/javascript">
+      function ajaxget(strURL) {
+        var xmlHttpReq = false;
+        var self = this;
+        // Mozilla/Safari
+        if (window.XMLHttpRequest) {
+          self.xmlHttpReq = new XMLHttpRequest();
+        }
+        // IE
+        else if (window.ActiveXObject) {
+          self.xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        self.xmlHttpReq.open('GET', strURL, true);
+        self.xmlHttpReq.send(null);
+      }
+    </script>
+    <script src="touchpad.js"></script>
+    <style type="text/css">
+      input {
+        font-size: 150%; 
+        height: 2em;
+        width: 3.6em;
+        text-align: center;
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+      }
+      div {
+        text-align: center; 
+      }
+      canvas {
+        position: relative; 
+        border: 2px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="touchpad" width="300" height="250"> 
+      <strong>[Your browser can not show the canvas.]</strong>
+    </canvas>
+    <div>
+      <input value="1" type="button" onclick="ajaxget('b1')" />
+      <input value="2" type="button" onclick="ajaxget('b2')" />
+      <input value="3" type="button" onclick="ajaxget('b3')" />
+    </div>
+  </body>
+</html>
