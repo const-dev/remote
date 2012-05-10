@@ -14,7 +14,7 @@
         else if (window.ActiveXObject) {
           self.xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");
         }
-        self.xmlHttpReq.open('GET', strURL, true);
+        self.xmlHttpReq.open('GET', strURL, false);
         self.xmlHttpReq.send(null);
       }
     </script>
