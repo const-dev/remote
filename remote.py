@@ -2,6 +2,7 @@
 
 from java.awt import Robot
 from java.awt.event import KeyEvent
+from java.lang import System
 import sys
 import socket
 import SocketServer
@@ -25,7 +26,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
 
 def get_ip():
-    if sys.platform.startswith('linux'):
+    if not System.getProperty('os.name').startswith('Linux'):
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(('8.8.8.8', 53))   # Google's public DNS server
         ip = s.getsockname()[0]
@@ -37,7 +38,12 @@ def get_ip():
 
 
 rbt = Robot()
-PORT = int(sys.argv[1]) if len(sys.argv) == 2 else DEFAULT_PORT
+
+if len(sys.argv) == 2:
+    PORT = int(sys.argv[1])
+else:
+    PORT = DEFAULT_PORT
+
 httpd = SocketServer.ThreadingTCPServer(('', PORT), MyHandler)
 print '%s:%d' % (get_ip(), PORT)
 httpd.serve_forever()

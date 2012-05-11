@@ -5,6 +5,7 @@ from java.awt.event import InputEvent
 from java.awt import MouseInfo
 from java.awt import Toolkit
 from java.awt import Dimension
+from java.lang import System
 import sys
 import socket
 import SocketServer
@@ -46,7 +47,7 @@ class MyHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
 
 
 def get_ip():
-    if not sys.platform.startswith('linux'):
+    if not System.getProperty('os.name').startswith('Linux'):
         ip = socket.gethostbyname(socket.gethostname())
     else:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -62,7 +63,12 @@ W = int(d.getWidth()) - 1
 H = int(d.getHeight()) - 1
 
 rbt = Robot()
-PORT = int(sys.argv[1]) if len(sys.argv) == 2 else DEFAULT_PORT
+
+if len(sys.argv) == 2:
+    PORT = int(sys.argv[1])
+else:
+    PORT = DEFAULT_PORT
+
 httpd = SocketServer.ThreadingTCPServer(('', PORT), MyHandler)
 print '%s:%d' % (get_ip(), PORT)
 httpd.serve_forever()
